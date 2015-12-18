@@ -413,16 +413,11 @@ namespace Fappadred
                             hero.IsValidTarget(R.Range) && !hero.IsDead && !hero.IsZombie && hero.HealthPercent <= 25))
             {
 
-                var predQ = Q.GetPrediction(target);
-
                 if (FappadredMenu.KillstealQ() && Q.IsReady() &&
                     target.Health + target.AttackShield + FappadredMenu.ComboQ1() <
                     Player.GetSpellDamage(target, SpellSlot.Q))
                 {
-                    if (predQ.HitChance >= HitChance.High)
-                    {
-                        Q.Cast(target.Position);
-                    }
+                        Q.Cast(Game.CursorPos);
                 }
 
                 if (FappadredMenu.KillstealE() && E.IsReady() &&
@@ -494,12 +489,12 @@ namespace Fappadred
                 if (FappadredMenu.LcQ() && FappadredMenu.LcQ2() && source.IsValidTarget(Q.Range) &&
                 Player.GetSpellDamage(source, SpellSlot.Q) >= source.Health && !source.IsDead)
                 {
-                    Q.Cast(source.Position);
+                    Q.Cast(Game.CursorPos);
                 }
 
                 if (Q.IsReady() && FappadredMenu.LcQ() && !FappadredMenu.LcQ2() && source.IsValidTarget(Q.Range))
                 {
-                    Q.Cast(source.Position);
+                    Q.Cast(Game.CursorPos);
                 }
             }
         }
@@ -523,7 +518,7 @@ namespace Fappadred
             }
             if (Q.IsReady() && FappadredMenu.JungleQ() && source.Distance(Player) <= Q.Range)
             {
-                Q.Cast(source.Position);
+                Q.Cast(Game.CursorPos);
             }
         }
 
@@ -560,11 +555,7 @@ namespace Fappadred
                         + qenemies.ChampionName].Cast<CheckBox>().CurrentValue;
                     if (useQ)
                     {
-                        var predq = Q.GetPrediction(qenemies);
-                        if (predq.HitChance >= HitChance.High)
-                        {
-                            Q.Cast(predq.CastPosition);
-                        }
+                            Q.Cast(Game.CursorPos);
                     }
                 }
             }
@@ -600,10 +591,9 @@ namespace Fappadred
                 {
                     var useQ = FappadredMenu.MyCombo["combo.Q"
                         + qenemies.ChampionName].Cast<CheckBox>().CurrentValue;
-                    var predQ = Q.GetPrediction(qenemies);
-                    if (useQ && predQ.HitChancePercent >= FappadredMenu.ComboQH())
+                    if (useQ)
                     {
-                        Q.Cast(predQ.CastPosition);
+                        Q.Cast(Game.CursorPos);
                     }
                 }
             }
