@@ -279,7 +279,7 @@ namespace Fappadred
             MyOtherFunctions.Add("checkSkin",
                 new CheckBox("Use skin changer:"));
             MyOtherFunctions.Add("skin.Id", 
-                new Slider("Skin Editor", 3, 0, 6));
+                new Slider("Skin Editor", 1, 0));
         }
 
         public static bool Nodraw()
