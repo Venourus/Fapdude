@@ -26,7 +26,7 @@ namespace Fappadred
         public static Spell.Skillshot Q;
         public static Spell.Active W;
         public static Spell.Targeted E;
-        public static Spell.Active R;
+        public static Spell.Targeted R;
         public static int time;
         public static readonly AIHeroClient Player = ObjectManager.Player;
 
@@ -60,7 +60,7 @@ namespace Fappadred
             Q = new Spell.Skillshot(SpellSlot.Q, 1125, SkillShotType.Linear);
             W = new Spell.Active(SpellSlot.W);
             E = new Spell.Targeted(SpellSlot.E, 500);
-            R = new Spell.Active(SpellSlot.R, 500);
+            R = new Spell.Targeted(SpellSlot.R, 500);
             #endregion
         }
 
@@ -73,7 +73,7 @@ namespace Fappadred
                 R.IsReady() && Player.HealthPercent <= FappadredMenu.UltiHP() && FappadredMenu.ComboR() &&
                 (articunoPerfectCheck || (args.Target != null && args.Target.IsMe)))
             {
-                R.Cast();
+                R.Cast(Player);
             }
         }
 
