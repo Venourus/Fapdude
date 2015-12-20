@@ -87,7 +87,7 @@ namespace Fappadred
             MyCombo.Add("combo.Q1", 
                 new Slider("Dance of arrows (Q Spell) Overkill", 60, 0, 500));
             MyCombo.Add("combo.R1",
-                new Slider("Lamb's Respite (R Spell) if Hp are under {0} %", 60, 0, 500));
+                new Slider("Lamb's Respite (R Spell) if Hp are under {0} %", 60, 0, 100));
             MyCombo.AddSeparator();
             MyCombo.AddGroupLabel("Pro Tips");
             MyCombo.AddLabel(
