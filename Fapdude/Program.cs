@@ -71,7 +71,7 @@ namespace Fappadred
                 args.Start.Extend(args.End, args.SData.CastRangeDisplayOverride).To3D());
             if (ProcessSpells.DB.Contains(args.SData.Name) &&
                 R.IsReady() && Player.HealthPercent <= FappadredMenu.UltiHP() && FappadredMenu.ComboR() &&
-                (articunoPerfectCheck || (args.target != null && args.target.IsMe)))
+                (articunoPerfectCheck || (args.Target != null && args.Target.IsMe)))
             {
                 R.Cast(Player);
             }
