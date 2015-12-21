@@ -504,7 +504,7 @@ namespace Fappadred
             var source =
                 EntityManager.MinionsAndMonsters.GetJungleMonsters()
                     .OrderBy(a => a.MaxHealth)
-                    .FirstOrDefault(a => a.IsValidTarget(Q.Range));
+                    .First();
 
             if (source == null) return;
             
