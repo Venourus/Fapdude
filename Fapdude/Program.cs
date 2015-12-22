@@ -503,7 +503,7 @@ namespace Fappadred
         private static void OnJungle()
         {
             var source =
-                EntityManager.MinionsAndMonsters.GetJungleMonsters()
+                EntityManager.MinionsAndMonsters.GetJungleMonsters(Player.ServerPosition, Q.Range)
                     .OrderByDescending(a => a.MaxHealth)
                     .FirstOrDefault();
 
