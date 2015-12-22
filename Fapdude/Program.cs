@@ -472,6 +472,7 @@ namespace Fappadred
             var source =
                             EntityManager.MinionsAndMonsters.GetLaneMinions().OrderBy(a => a.MaxHealth).FirstOrDefault(a => a.IsValidTarget(Q.Range));
             if (count == 0) return;
+            if (source == null) return;
             if (E.IsReady() && FappadredMenu.LcE() &&
                 Player.ManaPercent >= FappadredMenu.LcM())
             {
